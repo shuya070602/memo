@@ -1,2 +1,26 @@
-<h1>Notes#index</h1>
-<p>Find me in app/views/notes/index.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<div class="col-xs-4">
+  	  <%= render 'notes/new', note: @note %>
+    </div>
+
+  	  <div class="col-xs-8">
+  	  <h2>メモ一覧</h2><br>
+      <table class="table">
+        <tr>
+          <th>題名</th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @notes.each do |note| %>
+        <tr>
+          <td><%= note.title %></td>
+          <td><%= link_to "詳細", note_path(note.id) %></td>
+          <td><%= link_to "削除", note_path(:id), method: :delete, date: {confirm: "本当に削除してよろしいですか？"} %></td>
+        </tr>
+        <% end %>
+      </table>
+  	</div>
+  </div>
+</div>

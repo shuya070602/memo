@@ -1,2 +1,11 @@
-<h1>Notes#show</h1>
-<p>Find me in app/views/notes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+	<div class="">
+		<h2>メモ</h2>
+		<%= @note.title %>
+		<%= @note.body %>
+		<%= link_to "編集", edit_note_path(@note) %>
+		<%= link_to "削除", method: :delete, data: {confirm: "メモを削除しますか？"} %>
+    </div>
+  </div>
+</div>
