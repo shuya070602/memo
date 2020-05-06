@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #トップページ、アバウトページ
-  root 'tops#home'
-  get 'tops/about' => 'tops#about'
+  root 'homes#top'
+  get 'homes/about' => 'homes#about'
   #ユーザー機能
   devise_for :users
   get 'users/confirm' => 'users#confirm'
