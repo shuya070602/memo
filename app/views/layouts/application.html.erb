@@ -18,10 +18,12 @@
       <nav class="nav">
         <ul> <!--ログイン時-->
         <% if user_signed_in? %>
+          <li><%= link_to "使い方", homes_about_path %></li>
+          <li><%= link_to "マイページ", user_path(current_user) %></li>
           <li><%= link_to "メモ一覧", notes_path %></li>
           <li><%=link_to "ログアウト",destroy_user_session_path, method: :delete, date: {confirm: "ログアウトしますか？"} %></li>
         <% else %> <!--ログアウト時-->
-          <li><%= link_to "説明ページ", homes_about_path %></li>
+          <li><%= link_to "使い方", homes_about_path %></li>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %> </li>
         <% end %>

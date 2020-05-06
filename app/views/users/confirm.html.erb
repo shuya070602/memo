@@ -1,2 +1,13 @@
-<h1>Users#confirm</h1>
-<p>Find me in app/views/users/confirm.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="">
+      <h2>退会確認</h2>
+      <h4>本当に退会しますか？<br>
+      	退会すると会員情報や<br>
+      	メモが全て消えてしまいます<br>
+      	退会する場合は、「退会」をクリックしてください。</h4>
+      <%= link_to "退会しない", user_path(current_user), class: "btn btn-primary" %>
+      <%= link_to "退会する", registration_path(current_user), data: { confirm: "退会しますか？" }, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
