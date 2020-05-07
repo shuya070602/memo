@@ -17,7 +17,7 @@
         <tr>
           <td><%= note.title %></td>
           <td><%= link_to "詳細", note_path(note.id) %></td>
-          <td><%= link_to "削除", note_path(:id), method: :delete, date: {confirm: "本当に削除してよろしいですか？"} %></td>
+          <td><%= link_to "削除", note, method: :delete, data: {confirm: "メモを削除しますか？"} %></td>
         </tr>
         <% end %>
       </table>

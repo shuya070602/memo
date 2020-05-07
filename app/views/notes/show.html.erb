@@ -5,7 +5,7 @@
 		<%= @note.title %>
 		<%= @note.body %>
 		<%= link_to "編集", edit_note_path(@note) %>
-		<%= link_to "削除", method: :delete, data: {confirm: "メモを削除しますか？"} %>
+		<%= link_to "削除", @note, method: :delete, data: {confirm: "メモを削除しますか？"} %>
     </div>
   </div>
 </div>
