@@ -1,2 +1,20 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<div class="">
+  	  <h2>ジャンル編集</h2>
+  	  <%= form_for(@genre) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="field">
+      <%= f.label "ジャンル名" %>
+  	  <%= f.text_field :name %>
+      </div><br>
+
+      <div class="action">
+  	  <%= f.submit "保存" %>
+      </div>
+
+      <% end %>
+   	</div>
+  </div>
+</div>

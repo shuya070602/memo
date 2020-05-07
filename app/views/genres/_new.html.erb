@@ -1,0 +1,14 @@
+<h2>ジャンル登録</h2>
+  <%= form_for(genre) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+  	<%= f.label "ジャンル名" %>
+  	<%= f.text_field :name %>
+  </div><br>
+
+  <div class="action">
+  	<%= f.submit "登録" %>
+  </div>
+
+  <% end %>
