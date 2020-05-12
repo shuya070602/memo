@@ -2,6 +2,7 @@
   <div class="row">
 	<div class="">
 		<h2>メモ</h2>
+		<%= @note.created_at.strftime('%Y/%m/%d') %>
 		<%= @note.title %>
 		<%= @note.body %>
 		<%= link_to "編集", edit_note_path(@note) %>
