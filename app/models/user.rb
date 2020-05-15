@@ -6,6 +6,13 @@ class User < ApplicationRecord
   #会員１対ノート多
   has_many :notes, dependent: :destroy
   #会員１対ジャンル多
-  has_many :genres, dependent: :destroy
+  #has_many :genres, dependent: :destroy
 
+def self.search(search)
+       if search
+          User.where(['name LIKE ?', "%#{search}%"])
+       else
+          User.all
+       end
+    end
 end
