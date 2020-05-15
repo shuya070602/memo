@@ -2,31 +2,17 @@
   <div class="row">
   	<div class="col-xs-4">
       <h2>新規メモ</h2>
-
-      <h4>ジャンル選択</h4>
-      <%= form_for(@genre) do |f| %>
-
-      <div><%= radio_button_tag("genres_select",0) %>
-           <%= f.collection_select :name, @genres, :id, :name %><br></div><br>
-
-       <div class="field">
-        <%= radio_button_tag("genres_select",1) %>
-         <%= f.label "新しいジャンル名" %><br>
-         <%= f.text_field :name %>
-       </div><br>
-       <% end %>
-
+      <!--新規メモのviewの呼び出し-->
       <%= render 'notes/new', note: @note %>
-
     </div>
 
   	  <div class="col-xs-8">
+      <%= render 'notes/search' %>
   	  <h2>メモ一覧</h2><br>
       <table class="table">
         <tr>
           <th>作成日</th>
           <th>題名</th>
-          <th>ジャンル</th>
           <th></th>
           <th></th>
         </tr>
@@ -35,7 +21,6 @@
         <tr>
           <td><%= note.created_at.strftime('%Y/%m/%d')%></td>
           <td><%= note.title %></td>
-          <td><%= @genre.name %></td>
           <td><%= link_to "詳細", note_path(note.id) %></td>
           <td><%= link_to "削除", note, method: :delete, data: {confirm: "メモを削除しますか？"} %></td>
         </tr>

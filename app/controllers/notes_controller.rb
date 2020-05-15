@@ -1,22 +1,13 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @notes = Note.all
+    @notes = Note.search(params[:search])
     @note = Note.new
-    @genres = current_user.genres.all
-    @genre = current_user.genres.new
-    if params[:genres_select] == "0"
-      @genre = current_user.genres.find(genre_params[name])
-    elsif params[:genres_select] == "1"
-      @genre = current_user.genres.new
-      @genre.save
-    end
   end
 
   def create
     @notes = Note.all
     @note = current_user.notes.new(note_params)
-    @note.genre_id = current_user.id
     if @note.save
       redirect_to notes_path
     else
