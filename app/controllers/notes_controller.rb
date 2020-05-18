@@ -41,11 +41,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, :user_id, :genre_id)
-  end
-
-  def genre_params
-    params.require(:genre).permit(:name, :user_id)
+    params.require(:note).permit(:title, :body, :user_id)
   end
 
 end

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-12">
+		<h2>編集</h2><br>
+		<%= form_for(@group_note) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label "題名" %>
+    <%= f.text_field :title %>
+  </div><br>
+
+  <div class="field">
+  	<%= f.label "本文" %>
+  	<%= f.text_area :body %>
+  </div><br>
+
+  <div class="action">
+  	<%= f.submit "保存する" %>
+  </div>
+
+  <% end %>
+	</div>
+  </div>
+</div>
