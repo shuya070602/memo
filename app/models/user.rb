@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :notes, dependent: :destroy
   #会員１対ジャンル多
   #has_many :genres, dependent: :destroy
+  has_many :group_users
+  has_many :groups, through: :group_users
 
 def self.search(search)
        if search

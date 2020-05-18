@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   #ジャンル機能
   resources :genres
 
+  resources :groups
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
