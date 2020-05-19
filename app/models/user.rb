@@ -7,14 +7,17 @@ class User < ApplicationRecord
   has_many :notes, dependent: :destroy
   #会員１対ジャンル多
   #has_many :genres, dependent: :destroy
+  #会員１対グループ会員多
   has_many :group_users
+  #会員１対グループ多
   has_many :groups, through: :group_users
 
-def self.search(search)
+  #検索機能、部分一致も可能
+  def self.search(search)
        if search
           User.where(['name LIKE ?', "%#{search}%"])
        else
           User.all
        end
     end
-end
+  end

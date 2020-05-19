@@ -1,5 +1,6 @@
+<!--会員検索-->
 <p>検索</p>
-<%= form_tag(users_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %>
-<% end %>
+  <%= form_tag(users_path,:method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索', :name => nil %>
+  <% end %>

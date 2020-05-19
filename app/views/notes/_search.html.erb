@@ -1,5 +1,6 @@
+<!--メモの題名検索-->
 <p>検索</p>
-<%= form_tag(notes_path,:method => 'get') do %>
-  <%= text_field_tag :search %>
-  <%= submit_tag '検索', :title => nil %>
-<% end %>
+  <%= form_tag(notes_path,:method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索', :title => nil %>
+  <% end %>

@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row">
-	<div class="col-xs-12">
-	  <h2>会員一覧</h2>
-	  <%= render 'users/search' %>
-	  <table class="table">
-	  	<tr>
-	  	  <th>名前</th>
-	  	</tr>
+    <div class="col-xs-12">
+      <h2>会員一覧</h2>
+      <!--検索機能の表示-->
+      <%= render 'users/search' %>
 
-        <% @users.each do |user| %>
-	  	<tr>
-	  	  <td><%= user.name%></td>
-	  	</tr>
-	  	<% end %>
-	  </table>
-	</div>
+        <table class="table">
+          <tr>
+            <th>名前</th>
+          </tr>
+
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name%></td>
+          </tr>
+          <% end %>
+        </table>
+    </div>
   </div>
 </div>

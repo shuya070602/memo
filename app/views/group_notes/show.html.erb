@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-	<div class="col-xs-12">
-		<h2>メモ</h2>
-		<%= @group_note.created_at.strftime('%Y/%m/%d') %>
-		<%= @group_note.title %>
-		<%= @group_note.body %>
-		<%= link_to "編集", edit_group_note_path(@group_note) %>
-		<%= link_to "削除", @group_note, method: :delete, data: {confirm: "メモを削除しますか？"} %>
+    <div class="col-xs-12">
+      <h2>メモ</h2>
+        <%= @group_note.created_at.strftime('%Y/%m/%d') %>
+        <%= @group_note.title %>
+        <%= @group_note.body %>
+        <%= link_to "編集", edit_group_note_path(@group_note) %>
+        <%= link_to "削除", @group_note, method: :delete, data: {confirm: "メモを削除しますか？"} %>
     </div>
   </div>
 </div>

@@ -9,6 +9,7 @@ class Note < ApplicationRecord
   #本文の空白禁止、最大200文字
   validates :body, presence: true, length: {maximum: 200}
 
+ #検索機能、部分一致も可能
  def self.search(search)
        if search
           Note.where(['title LIKE ?', "%#{search}%"])
