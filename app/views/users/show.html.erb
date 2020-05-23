@@ -14,9 +14,9 @@
           </tr>
         </table>
 
-        <%= link_to "編集", edit_user_path(current_user) %><br><br>
-        <%= link_to "パスワードを変更する", edit_user_registration_path(current_user) %><br><br>
-        <%= link_to "退会する", users_confirm_path %>
+        <%= link_to "編集", edit_user_path(current_user), class: "btn btn-success" %><br><br>
+        <%= link_to "パスワードを変更する", edit_user_registration_path(current_user), class: "btn btn-primary" %><br><br>
+        <%= link_to "退会する", users_confirm_path, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

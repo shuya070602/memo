@@ -15,3 +15,26 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.navbar-link {
+  font-size: 20px;
+  line-height: 80px;
+}
+
+.header-logo {
+  font-size: 30px;
+}
+
+.nav {
+  float: right;
+}
+
+.nav li {
+  float: left;
+  margin: 0 20px;
+}
+
+.message {
+  float: center;
+  font-size: 30px;
+}

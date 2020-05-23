@@ -11,23 +11,52 @@
 
   <body>
     <!--ヘッダーの記述-->
-    <header class="navbar navbar-link", style="background-color: black;">
+    <header class="navbar navbar-link">
       <div class="container">
-      <%= link_to "MEMO", root_path %>
+      <div class="header-logo" >
+      <%= link_to "MEMO", root_path, class: "text-muted" %>
+      </div>
 
       <nav class="nav">
-        <ul> <!--ログイン時-->
-        <% if user_signed_in? %>
-          <li><%= link_to "説明", homes_about_path %></li>
-          <li><%= link_to "マイページ", user_path(current_user) %></li>
-          <li><%= link_to "メモ一覧", notes_path %></li>
-          <li><%= link_to "会員一覧", users_path %></li>
-          <li><%= link_to "グループ一覧", groups_path %></li>
-          <li><%=link_to "ログアウト",destroy_user_session_path, method: :delete, date: {confirm: "ログアウトしますか？"} %></li>
+        <ul>
+        <% if user_signed_in? %> <!--ログイン時-->
+          <li>
+            <span class='glyphicon glyphicon-pencil'></span>
+            <%= link_to "説明", homes_about_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-cog'></span>
+            <%= link_to "マイページ", user_path(current_user), class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-list-alt'></span>
+            <%= link_to "メモ一覧", notes_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-user'></span>
+            <%= link_to "会員一覧", users_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-th-list'></span>
+            <%= link_to "グループ一覧", groups_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-log-out logout'></span>
+            <%=link_to "ログアウト",destroy_user_session_path, method: :delete, date: {confirm: "ログアウトしますか？"}, class: "text-muted" %>
+          </li>
         <% else %> <!--ログアウト時-->
-          <li><%= link_to "説明", homes_about_path %></li>
-          <li><%= link_to "新規登録", new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %> </li>
+          <li>
+            <span class='glyphicon glyphicon-pencil'></span>
+            <%= link_to "説明", homes_about_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-edit sign_up'></span>
+            <%= link_to "新規登録", new_user_registration_path, class: "text-muted" %>
+          </li>
+          <li>
+            <span class='glyphicon glyphicon-log-in sign_in'></span>
+            <%= link_to "ログイン", new_user_session_path, class: "text-muted" %>
+          </li>
         <% end %>
         </ul>
       </nav>

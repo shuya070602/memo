@@ -4,7 +4,7 @@
       <h2>グループ一覧</h2>
 
       <!--新規グループ作成-->
-      <%= link_to "グループ作成", new_group_path %>
+      <%= link_to "グループ作成", new_group_path, class: "btn btn-success" %>
 
         <table class="table">
           <tr>
@@ -17,9 +17,9 @@
           <% @groups.each do |group| %>
           <tr>
             <td><%= group.name %></td>
-            <td><%= link_to "メモ一覧", group_notes_path %></td>
-            <td><%= link_to "編集", edit_group_path(group.id) %></td>
-            <td><%= link_to "削除", group, method: :delete, data: {confirm: "グループを削除しますか？"} %></td>
+            <td><%= link_to "メモ一覧", group_notes_path, class: "btn btn-info" %></td>
+            <td><%= link_to "編集", edit_group_path(group.id), class: "btn btn-success" %></td>
+            <td><%= link_to "削除", group, method: :delete, data: {confirm: "グループを削除しますか？"}, class: "btn btn-danger" %></td>
           </tr>
           <% end %>
         </table>

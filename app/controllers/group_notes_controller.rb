@@ -7,7 +7,7 @@ class GroupNotesController < ApplicationController
   def create
     @group_notes = GroupNote.all
     @group_note = GroupNote.new(group_note_params)
-    @group_note = group_id
+    @group_note.group_id = params[:group_note][:group_id]
     if @group_note.save
       redirect_to group_notes_path
     else

@@ -22,8 +22,8 @@
           <tr>
             <td><%= note.created_at.strftime('%Y/%m/%d')%></td>
             <td><%= note.title %></td>
-            <td><%= link_to "詳細", note_path(note.id) %></td>
-            <td><%= link_to "削除", note, method: :delete, data: {confirm: "メモを削除しますか？"} %></td>
+            <td><%= link_to "詳細", note_path(note.id), class: "btn btn-info" %></td>
+            <td><%= link_to "削除", note, method: :delete, data: {confirm: "メモを削除しますか？"}, class: "btn btn-danger" %></td>
           </tr>
           <% end %>
         </table>
