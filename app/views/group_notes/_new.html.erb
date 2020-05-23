@@ -2,7 +2,7 @@
 <%= form_for(group_note) do |f| %>
 <!--エラーメッセージの表示-->
 <%= render 'layouts/error_messages', model: f.object %>
-<%= f.hidden_field :group_id, :value => 1 %>
+<%= f.hidden_field :group_id, :value => group_note.group_id %>
 <div class="field">
   <%= f.label "題名" %><br>
   <%= f.text_field :title %>

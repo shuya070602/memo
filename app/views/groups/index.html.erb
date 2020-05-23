@@ -17,7 +17,7 @@
           <% @groups.each do |group| %>
           <tr>
             <td><%= group.name %></td>
-            <td><%= link_to "メモ一覧", group_notes_path, class: "btn btn-info" %></td>
+            <td><%= link_to "メモ一覧", group_notes_path(group_id: group.id), class: "btn btn-info" %></td>
             <td><%= link_to "編集", edit_group_path(group.id), class: "btn btn-success" %></td>
             <td><%= link_to "削除", group, method: :delete, data: {confirm: "グループを削除しますか？"}, class: "btn btn-danger" %></td>
           </tr>

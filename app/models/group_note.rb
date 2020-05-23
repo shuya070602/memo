@@ -8,11 +8,11 @@ class GroupNote < ApplicationRecord
   validates :body, presence: true, length: {maximum: 200}
 
  #検索機能、部分一致も可能
- def self.search(search)
+ def self.search(search, group_id)
        if search
-          GroupNote.where(['title LIKE ?', "%#{search}%"])
+          GroupNote.where(group_id: group_id).where(['title LIKE ?', "%#{search}%"])
        else
-          GroupNote.all
+          GroupNote.where(group_id: group_id)
        end
     end
 end

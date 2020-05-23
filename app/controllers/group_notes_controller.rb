@@ -1,7 +1,7 @@
 class GroupNotesController < ApplicationController
   def index
-    @group_notes = GroupNote.search(params[:search])
-    @group_note = GroupNote.new
+    @group_notes = GroupNote.search(params[:search], params[:group_id])
+    @group_note = GroupNote.new(group_id: params[:group_id])
   end
 
   def create
@@ -9,9 +9,9 @@ class GroupNotesController < ApplicationController
     @group_note = GroupNote.new(group_note_params)
     @group_note.group_id = params[:group_note][:group_id]
     if @group_note.save
-      redirect_to group_notes_path
+      redirect_to "/group_notes?group_id=#{params[:group_note][:group_id]}"
     else
-      render "index"
+      redirect_to "/group_notes?group_id=#{params[:group_note][:group_id]}"
     end
   end
 
@@ -33,9 +33,10 @@ class GroupNotesController < ApplicationController
   end
 
   def destroy
-    @group_note = GroupNote.find(params[:id])
-    @group_note.destroy
-    redirect_to group_notes_path
+    group_note = GroupNote.find(params[:id])
+    group_id = group_note.group_id
+    group_note.destroy
+    redirect_to "/group_notes?group_id=#{group_id}"
   end
 
   private
