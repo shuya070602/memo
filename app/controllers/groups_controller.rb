@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def index
-  	@groups = Group.all
+    target_group_user = GroupUser.select([:group_id]).where([user_id: current_user.id])
+    @groups = Group.where([id: target_group_user])
   end
 
   def new
@@ -19,10 +20,19 @@ class GroupsController < ApplicationController
 
   def edit
   	@group = Group.find(params[:id])
+    exist_users = User.eager_load(:groups).where(groups: { id: @group.id })
+    @users = User.where.not(id: exist_users.map{|u| u.id})
   end
 
   def update
-  	@group = Group.find(params[:id])
+    @group = Group.find(params[:id])
+    if params[:group][:user][:name] != ""
+     user = User.find(params[:group][:user][:name])
+     users = @group.users
+     users << user
+     @group.update_attribute(:users, users)
+     @group.save
+    end
   	if @group.update(group_params)
   	 redirect_to groups_path
   	else
@@ -37,6 +47,7 @@ class GroupsController < ApplicationController
   end
 
   private
+
   def group_params
   	params.require(:group).permit(:name, :user_id)
   end

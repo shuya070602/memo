@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6 col-xs-offset-3">
       <h2>グループ編集</h2>
 
         <%= form_for(@group) do |f| %>
@@ -11,6 +11,16 @@
           <%= f.label "グループ名" %><br>
           <%= f.text_field :name %>
         </div><br>
+
+        <h4>所属している会員</h4>
+        <% @group.users.each do |user| %>
+          <%= user.name %>
+        <% end %><br>
+
+        <%= f.label "会員追加" %>
+        <%= f.fields_for :user do |i| %>
+        <%= i.collection_select :name, @users, :id, :name, :include_blank => '未選択' %>
+        <% end %>
 
         <div class="action">
           <%= f.submit "保存", class: "btn btn-success" %>
