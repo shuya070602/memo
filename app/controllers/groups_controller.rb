@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def index
-    target_group_user = GroupUser.select([:group_id]).where([user_id: current_user.id])
-    @groups = Group.where([id: target_group_user])
+    target_group_user = GroupUser.select([:group_id]).where(user_id: current_user.id)
+    @groups = Group.where(id: target_group_user)
   end
 
   def new
@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
 
   def create
   	@group = Group.new(group_params)
+    @group.group_users.build(user_id: current_user.id)
   	if @group.save
   		redirect_to groups_path
   	else
